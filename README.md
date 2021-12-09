@@ -1,0 +1,2 @@
+# globalassets
+globalassets
