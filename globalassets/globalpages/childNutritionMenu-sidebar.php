@@ -16,3 +16,9 @@
 		<span>School Meal Menus</span>
 	</a>
 </li>
+<li>
+	<a href="https://docs.google.com/forms/d/e/1FAIpQLScxAhg6X4sFgnANbpCW1o5JyV_gfyEKjHBAvnrkaITdqmh65Q/viewform">
+		<img src="https://globalassets.provo.edu/image/icons/meal-menu.svg" alt="" />
+		<span>School Meals Order Form</span>
+	</a>
+</li>
