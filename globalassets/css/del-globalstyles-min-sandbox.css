@@ -1,3 +1,6 @@
+:root {
+	--main-blue-color: #1c2f4a;
+}
 /*
 -------------------------------------------------------------------------------------------------
 CSS Reset
@@ -32,8 +35,11 @@ em {font-style:italic;}
 	width:0;
 }
 iframe {
-	display:none;
+	display:block;
+	width: 100%;
+	height: 500px;
 }
+#wpadminbar {top: auto;bottom:0;}
 /*
 -------------------------------------------------------------------------------------------------
 structure elements
@@ -48,27 +54,21 @@ body {
 	background:-moz-linear-gradient(top,#dce3e8,#f6f9fb 50%,#f6f9fb 55%,#dbe2e8);
 	background:-webkit-linear-gradient(top,#dce3e8,#f6f9fb 50%,#f6f9fb 55%,#dbe2e8);
 	background:linear-gradient(to bottom,#dce3e8,#f6f9fb 50%,#f6f9fb 55%,#dbe2e8);
-	padding:20px 20px 5px 30px;
+	padding:0 0 10px 0;
 	position:fixed;
 	top:0;
 	left:0;
 	right:0;
-	height:107px;
-	box-shadow:0 3px 3px -2px #000;
-	-webkit-box-shadow:0 3px 3px -2px #000;
-	-moz-box-shadow:0 3px 3px -2px #000;
 	z-index:10000;
 }
 #mainContent {
+	margin-top: 110px;
 	width:100%;
-	position:fixed;
-	top:133px;
-	left:0;
-	right:0;
-	bottom:45px;
-	background-image:url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
-	background-repeat:repeat;
-	z-index:0;
+	background-color: #fff;
+}
+#belowSlider {
+	padding: 0 15%;
+	text-align: center;
 }
 #mainFooter {
 	background:#1c2f4a;
@@ -77,39 +77,20 @@ body {
 	font-size: 1em;
 	line-height:1.2em;
 	padding:0 1%;
-	position:fixed;
-	bottom:0;
-	left:0;
-	z-index:10;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	right:0;
+	z-index:10000;
 }
 #mainFooter .footerMenu ul li {
 	float: left;
 	list-style: none;
-
 }
 #mainFooter .footerMenu ul li a {
 	color: #fff;
 	padding-right: 10px;
 }
-
-/*
-#mainFooter p {
-	margin:15px 15px 15px 0;
-}
-#mainFooter .feedback {
-	text-align:right;
-	margin-top:-10px;
-}
-#mainFooter .feedback a {
-	color:#dae1e7;
-	font-size:16px;
-}
-#mainFooter .feedback a:hover {
-	color:#df6d1b;
-	text-decoration:underline;
-}
-*/
 /*
 --------------------------------------------------------------------
 Main Header
@@ -118,87 +99,112 @@ Main Header
 .grecaptcha-badge {visibility: hidden;}
 .districtLogo {
 	position:absolute;
-	width:205px;
+	width:150px;
+	margin-top:5px;
+	margin-left: 25px;
 }
-#cludo-search-form .search-input {
-	width:400px;
-	height:35px;
-	position:absolute;
-	right:55px;
-	padding:0;
-	margin:0;
+#socialMediaFrontPage .sociallinks {
+	text-align: center;
 }
-#cludo-search-form .search-submit {
-	width:35px;
-	height:35px;
-	display:block;
-	position:absolute;
-	right:20px;
-	padding:0;
-	margin:0;
-	text-align:center;
-	cursor:pointer;
-	background-color:#21395a;
+#socialMediaFrontPage .sociallinks li {
+	display: inline;
+	margin: 0 10px 0 0;
 }
-#cludo-search-form input.search-icon {
-	background-position:0 0;
-	z-index:90;
-	color:transparent;
-	background-image:url(//globalassets.provo.edu/image/icons/search-lt.svg);
+#socialMediaFrontPage .sociallinks li a {
+	text-decoration: none;
 }
-.contactinfo {
-	text-align:right;
-	margin-top:40px;
-	color:#5c6571;
-}
-/* removed because we are making all of these lines the same size
-.contactinfo li:first-child {
-	font-size:10px;
-}
-*/
-.contactinfo li {
-	list-style:none;
-	font-size:10px;
-	margin:0;
-	line-height:1.3em;
-	text-transform:uppercase;
+#socialMediaFrontPage .sociallinks li img {
+	width: 45px;
 }
 #mainHeader input[type=checkbox] {
 	position:absolute;
 	top:-9999px;
 	left:-9999px;
 }
-#mainHeader .sociallinks {
+#mainHeader #covidBranding {
+	text-align: center;
+	text-transform: uppercase;
+	background: #fd6e03;
+	height:30px;
+	padding: 5px 0 0 0;
+}
+#mainHeader #covidBranding a {
+	color: #fff;
+	font-size: .7em;
+	margin: 0;
+}
+#mainHeader #alert {
+	text-align: center;
+}
+#mainHeader #alert h1 a {
+	color: #fff;
+}
+#mainHeader #alert .alerts {
+	background-color: red;
+	color: #fff;
+	padding: 10px 10px 10px 10px;
+}
+#mainHeader #alert .closeAlert {
+	width: 20px;
 	position: absolute;
-	right: 470px;
-	top: 19px;
-}
-#mainHeader .sociallinks li {
-	display: inline;
-	margin: 0 10px 0 0;
-}
-#mainHeader .sociallinks li a {
-	text-decoration: none;
-}
-#mainHeader .sociallinks li img {
-	width: 35px;
+	right: 10px;
+	top: 10px;
+	background: transparent;
 }
 /*
 --------------------------------------------------------------------
 Cludo Search
 --------------------------------------------------------------------
 */
+.websiteSearch {
+	position: relative;
+}
+#cludo-search-form .search-input {
+	width: 400px;
+	height:35px;
+	position: absolute;
+	right: -9999px;
+	top:80px;
+	transition: 0s 2s;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+#cludo-search-form:hover .search-input {
+	right: 20px;
+	transition: 0s;
+}
+#cludo-search-form .search-submit {
+	width:25px;
+	height:25px;
+	display:block;
+	position:absolute;
+	right:20px;
+	padding:0;
+	margin: 25px 0 0 0;
+	text-align:center;
+	cursor:pointer;
+}
+#cludo-search-form input.search-icon {
+	background-position:0 0;
+	z-index:90;
+	color:transparent;
+	background-image:url(https://globalassets.provo.edu/image/icons/search-loupe.svg);
+	background-color: transparent;
+	background-size: contain;
+}
 .powered-by-cludo {
 	display: none!important;
 }
 #search_autocomplete {
 	background-color: #eee;
 	position: absolute;
-	right: 55px;
-	top: 50px;
+
+	right: 20px;
+	top: 115px;
 	width: 400px;
 	z-index: 20;
-	box-shadow: 0 10px 7px -5px black; 
+	box-shadow: 0 10px 7px -5px black;
 }
 #search_autocomplete li{
 	list-style: none;
@@ -208,8 +214,6 @@ Cludo Search
 #search_autocomplete li:hover,#search_autocomplete li:active,#search_autocomplete li:focus,#search_autocomplete li:focus-within {
 	background-color: #ccc;
 }
-
-
 /*
 --------------------------------------------------------------------
 Navigation
@@ -231,16 +235,18 @@ Navigation
 #mainNav {
 	width: 100%;
 	font-size:.85em;
-	float:left;
 }
 .nav-menu {
 	display:block;
 	position:relative;
 	list-style:none;
 	text-align:left;
-	margin: -23px 0px 0 190px;
+	float: right;
 	padding:0;
 	z-index:15;
+	margin-right: 65px;
+	padding-top: 15px;
+	margin-bottom: 6px;
 }
 .nav-item {
 	list-style:none;
@@ -257,7 +263,7 @@ Navigation
 	display:inline-block;
 	color:#002b51;
 	padding:.5em 1em;
-	margin:8px 0 -1px;
+	margin:8px 0;
 	border:1px solid transparent;
 	text-decoration:none;
 }
@@ -274,23 +280,24 @@ Navigation
 	z-index:1;
 	color:#e16c16;
 }
+.nav-item img {
+	height: 30px;
+	margin-bottom: -10px;
+}
 .sub-nav {
 	position:fixed;
+	right: 0;
 	left: 0;
-	top: 124px;
 	opacity: 0;
+	top:117px;
 	visibility:hidden;
-	
-	/*transition: visibility 0s linear 0s, opacity 400ms;*/
 	transition-delay:.5s;
-	margin-top:9px;
 	padding:30px 20px 0;
-	background-color:#21395a;
+	background-color:rgba(33,57,90,.9);
 	text-transform:none;
-	width:calc(97% - 320px);
+	width:100%;
 	text-align:left;
 	border-radius:3px;
-	box-shadow:1px 1px 5px #000;
 }
 .sub-nav a {
 	text-decoration:none;
@@ -304,6 +311,7 @@ Navigation
 	opacity: 1;
 	transition: visibility 0s linear 0s, opacity 400ms;
 	transition-delay:.5s;
+	border-top:none;
 }
 .sub-nav ul.sub-nav-group {
 	display:inline-block;
@@ -330,7 +338,7 @@ ul.sub-nav-group li img {
 	padding:0;
 }
 .sub-nav .sub-nav-group .subMenu {
-	margin-top:-30px;
+	margin-top:-15px;
 	margin-bottom:15px;
 	display:block;
 }
@@ -343,8 +351,8 @@ ul.sub-nav-group li img {
 	margin:0 0 0 50px;
 }
 .sub-nav ul.sub-nav-group li a {
-position: absolute;
-width: 26%;	
+	position: absolute;
+	width: 26%;
 }
 .sub-nav ul.sub-nav-group li ul li a {
 	text-transform:capitalize;
@@ -373,6 +381,11 @@ width: 26%;
 	font-size:8px;
 	line-height:1em;
 }
+.rightarrow:after {
+	content:"\2794";
+	font-size:1em;
+	vertical-align: middle;
+}
 /*
 -------------------------------------------------------------------------------------------------
 Content Area
@@ -382,14 +395,16 @@ Content Area
 	display:block;
 	position:absolute;
 	left:0;
-	top:0;
-	bottom:0;
+	top:120px;
+	bottom:45px;
 	width:calc(100% - 320px);
 	overflow-y:auto;
 	overflow-x:hidden;
+	background-image: url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
 }
 .wp-block-button {
-	float: right!important;
+	float: right;
+	margin-top: -58px;
 }
 .wp-block-button .wp-block-button__link {
 	float: right!important;
@@ -405,12 +420,14 @@ Breadcrumbs
 	font-size:.6em;
 	padding-top:2px;
 	padding-bottom:2px;
-	padding-left:10px;
+	padding-left:20px;
 	margin-top:0;
 	margin-bottom:0;
+	margin-left: 0;
 	color:#fff;
 	list-style:none;
 	overflow:hidden;
+	background-image: url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
 }
 #breadcrumbs li {
 	display:inline-block;
@@ -552,8 +569,8 @@ Single Post
 	padding-top:20px;
 }
 .singlePost .postmeta {
-	max-width:100%;
-	display: inline-block;
+	max-width:1000px;
+	margin: 0 auto;
 }
 .singlePost .postmeta ul,.postgrid .postmeta ul {
 	margin:0;
@@ -591,9 +608,8 @@ Department main styles
 }
 .departmentFullWidth .currentContent {
 	width: 96%;
-	height: auto;	
+	height: auto;
 }
-
 .content .fullwidthcurrentContent {
 	background-color:#fff;
 	width:96%;
@@ -629,8 +645,7 @@ Department main styles
 	padding-left:0;
 	padding-right:0;
 	padding-bottom:10px;
-	width:14.3%;
-	height:auto;/* changed from 125px to auto so that the slider span was only as big as it needed to be 11-16-17*/
+	height:auto;
 	background-color:#ccd5df;
 	background-color:rgba(204,213,223,0.9);
 }
@@ -704,8 +719,7 @@ Department main styles
 }
 .content .departmentResources .menu-Tile ul li {
 	list-style-position:inside;
-	margin:5px 0;
-	padding:5px 5px 5px 10px;
+	margin:10px 0;
 }
 .content .departmentResources .menu-Tile ul li a:hover {
 	color:#df6d1b;
@@ -772,10 +786,17 @@ Office Directory styles
 	font-size:1em;
 	font-weight:700;
 }
-.directory .personalvCard ul li.phone,.directory .personalvCard ul li.email,.directory .personalvCard ul li.address,.directory .personalvCard ul li.schools {
+.directory .personalvCard ul li.phone,
+.directory .personalvCard ul li.email,
+.directory .personalvCard ul li.address,
+.directory .personalvCard ul li.schools,
+.directory .personalvCard ul li.speaksSpanish
+{
 	font-size:.7em;
 }
-.activePost #directorySearch,.activePost #filter,.activePost #directorySearchIcon {
+.activePost #directorySearch,
+.activePost #filter,.activePost #directorySearchIcon
+{
 	display:none;
 }
 .activePost #filter {
@@ -825,34 +846,7 @@ Office Directory styles
 	position: absolute;
 	right: 15px;
 }
-.powered-by {
-	display: none;
-}
-
-
-
-/* .activePost #cludo-search-form {
-	border:1px solid #ccc;
-	padding:5px;
-	margin-bottom:20px;
-	max-width: 80%;
-	height: 22px;
-}
-.activePost #cludo-search-form input {
-	width: 94%;
-}
-.activePost #cludo-search-form .search-submit {
-	width:35px;
-	height:34px;
-	margin-top: -6px;
-	color: transparent;
-	background-color: #21395a;
-	margin-right: -41px;
-	overflow: hidden;
-	background-image: url(//globalassets.provo.edu/image/icons/search-lt.svg);
-	text-align:center;
-}
-*/
+.powered-by { display: none; }
 /*
 --------------------------------------------------------------------
 Sidebars
@@ -861,11 +855,10 @@ Sidebars
 .sidebar {
 	display:block;
 	width:280px;
-	height:100%;
 	position:absolute;
 	right:0;
-	top:0;
-	bottom:0;
+	top:110px;
+	bottom:45px;
 	padding:0 20px;
 	background-color:#21395a;
 	color:#dce2e8;
@@ -924,9 +917,6 @@ Sidebars
 	height:125px;
 	margin-bottom:20px;
 }
-.boardsidebar .personalvCard img {
-	margin-bottom:0;
-}
 .sidebar .personalvCard ul {
 	width:60%;
 	font-size:.85em;
@@ -952,15 +942,11 @@ Sidebars
 	width:100%;
 }
 .imagelist li a {
-	display:block;
+	display:grid;
+	grid-template-columns: 20% 95%;
 }
 .imagelist li a img {
-	vertical-align:middle;
-}
-.imagelist li a span {
-	display:inline-block;
-	vertical-align:middle;
-	width:180px;
+	vertical-align: middle;
 }
 .sidebar .imagelist li a:hover {
 	text-decoration:none!important;
@@ -986,7 +972,7 @@ Sidebars
 .sidebar .buttonlink {
 	background: #dce2e8;
 	border: 1px solid rgba(0,0,0,0.1);
-	box-shadow: 
+	box-shadow:
 	    inset 0 2px 3px rgba(255,255,255,0.3),
 	    inset 0 0px 3px rgba(0,0,0,0.3),
 	    0 1px 1px rgba(255,255,255,0.9);
@@ -1080,11 +1066,17 @@ h1 {
 }
 h2 {font-size:1.75em;}
 .activePost h2:first-of-type,.activePost h3:first-of-type{clear:none;}
-/* Rob asked me to remove on 12-7-17
-.content h2 {
-	margin:50px 0;
+.headerPhone {
+	position: absolute;
+	right: 60px;
+	bottom: 0;
+	margin-bottom: 5px;
+	color: #999;
 }
-*/
+.headerPhone span:first-of-type {
+	color: #777;
+	margin-right: 20px;
+}
 .currentContent .post h2 {margin-top:0;}
 h3 { font-size:1.25em;}
 /*
@@ -1210,7 +1202,7 @@ ul li a[href*="xls"]:after {
 	content:' ';
 	display: inline-block;
 	margin-left: 3px;
-	width:.7em;
+	min-width:.7em;
 	height:.7em;
 	background-size:contain;
 	background-image:url(//globalassets.provo.edu/image/icons/external-link-gray.svg);
@@ -1219,12 +1211,6 @@ ul li a[href*="xls"]:after {
 	background-image: none;
 }
 .content p a[href*="provo.edu"]:after{
-/*	content:' ';
-	display:inline-block;
-	
-	width:.7em;
-	height:.7em;
-	background-size:contain; */
 	display: inline-block;
 	background-image:url(//globalassets.provo.edu/image/icons/file-blue.png);
 }
@@ -1232,32 +1218,32 @@ ul li a[href*="xls"]:after {
 	background-image: none;
 }
 .content p a[href*="pdf"]:after{
-	content:' (PDF)';
-	display: inline-block;
+	content:'(PDF) ';
+	display: inline;
 	background-image: none;
 }
 .content p a[href*="xls"]:after{
-	content:' (XLS)';
+	content:'(XLS) ';
 	background-image: none;
-	display: inline-block;
+	display: inline;
 }
 /* these are so that the listed links have a the right icon once the javascript gives them a class*/
-ul li.int {
+ul:not(.sub-nav-group,.subMenu) li.int {
 	list-style-image:url(//globalassets.provo.edu/image/icons/file-blue.png)!important;
 	list-style-position: inside!important;
 	margin-left: -4px;
 }
-ul li.pdf {
+ul:not(.sub-nav-group,.subMenu) li.pdf {
 	list-style-image:url(//globalassets.provo.edu/image/icons/pdf.png)!important;
 	list-style-position: inside!important;
 	margin-left: -4px;
 }
-ul li.xls {
+ul:not(.sub-nav-group,.subMenu) li.xls {
 	list-style-image:url(//globalassets.provo.edu/image/icons/xls.png)!important;
 	list-style-position: inside!important;
 	margin-left: -4px;
 }
-ul li.ext {
+ul:not(.sub-nav-group,.subMenu) li.ext {
 	list-style-image:url(//globalassets.provo.edu/image/icons/external-link-gray.svg)!important;
 	list-style-position: inside!important;
 	margin-left: -4px;
@@ -1265,81 +1251,6 @@ ul li.ext {
 ul.imageList li {
 	list-style: none!important;
 }
-/*
-.content ul li a:after {
-	content:' - External Link';
-	position:absolute;
-	left:-9999px;
-}
-.content ul li a[href*="provo.edu"]:after {
-	content:' - Internal Link';
-	position:absolute;
-	left:-9999px;
-}
-.content ul li a[href*="pdf"]:after {
-	content:' - PDF Document';
-	position:absolute;
-	left:-9999px;
-}
-.content ul li a[href*="xls"]:after {
-	content:' - XLS Document';
-	position:absolute;
-	left:-9999px;
-}
-ul li.int {
-	list-style-image:url(//globalassets.provo.edu/image/icons/pcsd-icon-16x16.png);
-}
-ul li.pdf {
-	list-style-image:url(//globalassets.provo.edu/image/icons/pdf.png);
-}
-ul li.xls {
-	list-style-image:url(//globalassets.provo.edu/image/icons/xls.png);
-}
-ul li.ext {
-	list-style-image:url(//globalassets.provo.edu/image/icons/external-link-gray.svg);
-}
-ul li.pdf a:after {
-	content:' - PDF Document';
-	position:absolute;
-	left:-9999px;
-}
-a.pdf:after {
-	content:' (PDF)';
-}
-
-ul li.xls a:after {
-	content:' - Excel Document';
-	position:absolute;
-	left:-9999px;
-}
-a.xls:after {
-	content:' (XLS)';
-}
-
-ul li.ext a:after {
-	content:' - External Link';
-	position:absolute;
-	left:-9999px;
-}
-a.ext:after {
-	content:' ';
-	display:inline-block;
-	margin-left:3px;
-	width:.7em;
-	height:.7em;
-	background-size:contain;
-	background-image:url(//globalassets.provo.edu/image/icons/external-link-gray.svg);
-}
-#mainNav a.ext:after,#sidebar a.ext:after {
-	content:' ';
-	display:inline-block;
-	margin-left:3px;
-	width:.7em;
-	height:.7em;
-	background-size:contain;
-	background-image:url(//globalassets.provo.edu/image/icons/external-link-white.svg);
-}
-*/
 blockquote {
 	font-size:1em;
 	font-style:italic;
@@ -1384,6 +1295,14 @@ table td,table th {
 span.wpcf7-list-item {
 	display: block;
 }
+.articlecontent {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.swp_social_panel:not(.nc_floater):not(.swp_social_panelSide) {
+	width: 1000px!important;
+	margin: 0 auto;
+}
 /*
 --------------------------------------------------------------------
 Policy styles
@@ -1399,7 +1318,6 @@ Policy styles
 ul.policystyle {
 	margin-left:-20px;
 	overflow-x:auto;
-
 }
 ul.policystyle li {
 	list-style-position:inside;
@@ -1409,7 +1327,6 @@ ul.policystyle li {
 	white-space:nowrap;
 	padding-top:20px;
 	padding-bottom:20px;
-
 }
 ul.policystyle li a {
 	font-size:1.5em;
@@ -1436,11 +1353,6 @@ ul.policystyle li:nth-child(odd) {
 	margin-right:50px;
 	margin-bottom:50px;
 }
-/*
-.policystyle article ul li {
-	margin-left:180px;
-}
-*/
 ul.policystyle li:nth-child(odd) ul li,ul.policystyle li:nth-child(even) ul li {
 	background-color:transparent;
 }
@@ -1523,8 +1435,8 @@ accordion styles .accordion as the control and a div beneath as the panel
 	color: #02365b;
 	float: right;
 	margin-left: 5px;
-}	
-.active:after {
+}
+.accordion.active:after {
 	  content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 /* Style the accordion panel. Note: hidden by default */
@@ -1539,9 +1451,11 @@ Contact Styles
 --------------------------------------------------------------------
 */
 .address ul li {list-style: none;margin-top: 0;margin-bottom: 0;}
-/*================================================================================================================
+/*
+================================================================================================================
 Calendar plugin styling
-================================================================================================================*/
+================================================================================================================
+*/
 #sidebar .simcal-calendar {
 	background-color: #fff;
 	border-radius: 3px;
@@ -1570,55 +1484,51 @@ form styles
 }
 .contact form input {
 	display: inline-block;
-	border: 1px solid #ccc; 
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin: 0 0 15px 0;
 	padding: 10px;
 	width: calc(100% - 152px);
 }
-form input[type=submit] {
+.contact form input[type=submit], form button {
 	width: 150px;
 	margin: 20px 0 20px 0;
 	padding: 10px;
-	float: left;
+
+	border: 1px solid #ccc;
 }
-form input[type=checkbox], form input[type=radio] {
+.contact form input[type=checkbox], form input[type=radio] {
 	display: inline;
 	width: auto;
-	
+
 	margin-left: 20px;
 	margin-right: 5px;
 }
 
 form p {
 	display: block;
+	/* changed from inline-block to block on this page => https://provo.edu/public-relations/the-provo-way-award-nomination-form/ because it was causing issues with formatting if this is changed check this page */
 }
-form textarea {
-	clear: both; 
-	width: calc(100% - 20px); 
+.contact form textarea {
+	clear: both;
+	width: calc(100% - 20px);
 	min-height: 200px;
 	display:block;
 	margin-bottom: 20px;
-	border: 1px solid #ccc; 
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 10px;
 }
-form ul li span {
+.contact form ul li span {
 	display: inline-block;
 	width: 155px;
 }
-/*	
+/*
 --------------------------------------------------------------------------------------------------------------
 Responsive styles
 --------------------------------------------------------------------------------------------------------------
 */
 @media (max-width: 1200px) {
-	/*.nav-item .ourDistrict {
-		left:100px;
-	}
-	.nav-item .schools {
-		left:-100px;
-	}*/
 	ul.sub-nav-group li img {
 		height: 30px;
 		width:30px;
@@ -1634,17 +1544,6 @@ Responsive styles
 	#mainContent {
 		bottom:50px;
 	}
-	#mainFooter {
-		height: 50px;
-	}
-	/*
-	#mainFooter p {
-		margin:10px 10px 10px 0;
-	}
-	#mainFooter .feedback {
-		margin-top:-5px;
-	}
-	*/
 	.twoColumnMedia {
 		width: 100%;
 		float: none;
@@ -1687,16 +1586,6 @@ Responsive styles
 		margin-top:132px;
 		max-height:927px;
 	}
-	#mainFooter {
-		display:block;
-		position:inherit;
-		clear:both;
-		padding:5px;
-		height:inherit;
-	}
-	#wp-live-chat {
-		bottom:0!important;
-	}
 	.nav-menu {
 		display:none;
 	}
@@ -1704,13 +1593,17 @@ Responsive styles
 		display:block;
 		text-align:center;
 		width:85%;
-		margin-top: -15px;
+		margin-top: 25px;
+		margin-bottom: 20px;
+	}
+	#cludo-search-form .search-submit {
+		top: -65px;
 	}
 	#cludo-search-form .search-input {
-		width:200px;
+		top: 0;
 	}
-	#mainHeader .sociallinks {
-		right: 270px;
+	#search_autocomplete {
+		top: 35px;
 	}
 	#reveal-menu[type=checkbox]:checked ~ #mainNav #mobileNav {
 		display:block;
@@ -1766,15 +1659,12 @@ Responsive styles
 		width:94%;
 	}
 }
-
-@media (max-width: 617px) {
-	#mainHeader {
-		height:68px;
-		max-width:100%;
-		padding-left:20px;
+@media (max-width: 685px) {
+	.headerPhone {
+		font-size: 12px;
 	}
-	#mainHeader .sociallinks {
-		display: none;
+	#cludo-search-form:hover .search-input {
+		width: 300px;
 	}
 	#mainHeader .mobileMenu {
 		width:100%;
@@ -1782,27 +1672,6 @@ Responsive styles
 	}
 	.districtLogo {
 		width:100px;
-	}
-	.contactinfo {
-		margin-top:0;
-	}
-	#cludo-search-form .search-input {
-		width:calc(95% - 34px);
-		margin-top:74px;
-		padding-left:5%;
-		right:36px;
-		border-radius:unset;
-		border-bottom:1px solid #ccc;
-	}
-	#cludo-search-form .search-submit,#cludo-search-form .search-icon {
-		margin-top:74px;
-		position:absolute;
-		right:0;
-		width:36px;
-		height:36px;
-	}
-	#search_autocomplete {
-		display: none;
 	}
 	#mainNav #mobileNav {
 		top:124px;
@@ -1887,21 +1756,21 @@ Responsive styles
 }
 @media (max-height: 400px) {
 	#mainHeader {
-		position:relative;
+		position: initial;
+	}
+	#cludo-search-form .search-input {
+		right: 0;
+		top: 80px;
+
+	}
+	#cludo-search-form:hover .search-input {
+		right: 50px;
+		top:-65px;
 	}
 	#mainContent {
-		margin-top:0;
-		overflow:visible;
-		position:inherit;
-		background-image:none;
-		background-color:#21395a;
+		margin-top:0!important;
 	}
-	#mainContent .content {
-		max-height:none;
-		background-image:url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
-	}
-	#mainContent .sidebar {
-		max-height:none;
-		overflow:visible;
+	#mainFooter{
+		position:initial;
 	}
 }

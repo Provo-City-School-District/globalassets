@@ -1,6 +1,3 @@
-:root {
-	--main-blue-color: #1c2f4a;
-}
 /*
 -------------------------------------------------------------------------------------------------
 CSS Reset
@@ -35,11 +32,8 @@ em {font-style:italic;}
 	width:0;
 }
 iframe {
-	display:block;
-	width: 100%;
-	height: 500px;
+	display:none;
 }
-#wpadminbar {top: auto;bottom:0;}
 /*
 -------------------------------------------------------------------------------------------------
 structure elements
@@ -49,34 +43,32 @@ body {
 	font-size:1em;
 	line-height:1.375em;
 }
-
 #mainHeader {
 	background:#dce3e8;
 	background:-moz-linear-gradient(top,#dce3e8,#f6f9fb 50%,#f6f9fb 55%,#dbe2e8);
 	background:-webkit-linear-gradient(top,#dce3e8,#f6f9fb 50%,#f6f9fb 55%,#dbe2e8);
 	background:linear-gradient(to bottom,#dce3e8,#f6f9fb 50%,#f6f9fb 55%,#dbe2e8);
-	padding:0 0 10px 0;
+	padding:20px 20px 5px 30px;
 	position:fixed;
 	top:0;
 	left:0;
 	right:0;
-
-	/*
+	height:107px;
 	box-shadow:0 3px 3px -2px #000;
 	-webkit-box-shadow:0 3px 3px -2px #000;
 	-moz-box-shadow:0 3px 3px -2px #000;
-	*/
-
 	z-index:10000;
 }
 #mainContent {
-	margin-top: 110px;
 	width:100%;
-	background-color: #fff;
-}
-#belowSlider {
-	padding: 0 15%;
-	text-align: center;
+	position:fixed;
+	top:133px;
+	left:0;
+	right:0;
+	bottom:45px;
+	background-image:url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
+	background-repeat:repeat;
+	z-index:0;
 }
 #mainFooter {
 	background:#1c2f4a;
@@ -85,15 +77,16 @@ body {
 	font-size: 1em;
 	line-height:1.2em;
 	padding:0 1%;
-	position: fixed;
-	bottom: 0;
-	left: 0;
+	position:fixed;
+	bottom:0;
+	left:0;
+	z-index:10;
 	right:0;
-	z-index:10000;
 }
 #mainFooter .footerMenu ul li {
 	float: left;
 	list-style: none;
+
 }
 #mainFooter .footerMenu ul li a {
 	color: #fff;
@@ -125,21 +118,44 @@ Main Header
 .grecaptcha-badge {visibility: hidden;}
 .districtLogo {
 	position:absolute;
-	width:150px;
-	margin-top:5px;
-	margin-left: 25px;
+	width:205px;
 }
-
-
-/* removed because we are making all of these lines the same size
+#cludo-search-form .search-input {
+	width:400px;
+	height:35px;
+	position:absolute;
+	right:55px;
+	padding:0;
+	margin:0;
+}
+#cludo-search-form .search-submit {
+	width:35px;
+	height:35px;
+	display:block;
+	position:absolute;
+	right:20px;
+	padding:0;
+	margin:0;
+	text-align:center;
+	cursor:pointer;
+	background-color:#21395a;
+}
+#cludo-search-form input.search-icon {
+	background-position:0 0;
+	z-index:90;
+	color:transparent;
+	background-image:url(//globalassets.provo.edu/image/icons/search-lt.svg);
+}
 .contactinfo {
 	text-align:right;
 	margin-top:40px;
 	color:#5c6571;
 }
+/* removed because we are making all of these lines the same size
 .contactinfo li:first-child {
 	font-size:10px;
 }
+*/
 .contactinfo li {
 	list-style:none;
 	font-size:10px;
@@ -147,112 +163,39 @@ Main Header
 	line-height:1.3em;
 	text-transform:uppercase;
 }
-
-*/
-
-#socialMediaFrontPage .sociallinks {
-	text-align: center;
-	}
-	#socialMediaFrontPage .sociallinks li {
-		display: inline;
-		margin: 0 10px 0 0;
-	}
-	#socialMediaFrontPage .sociallinks li a {
-		text-decoration: none;
-	}
-	#socialMediaFrontPage .sociallinks li img {
-		width: 45px;
-	}
 #mainHeader input[type=checkbox] {
 	position:absolute;
 	top:-9999px;
 	left:-9999px;
 }
-
-#mainHeader #covidBranding {
-	text-align: center;
-	text-transform: uppercase;
-	background: #fd6e03;
-	height:30px;
-	padding: 5px 0 0 0;
-}
-
-#mainHeader #covidBranding a {
-	color: #fff;
-	font-size: .7em;
-	margin: 0;
-}
-#mainHeader #alert {
-	text-align: center;
-}
-#mainHeader #alert h1 a {
-	color: #fff;
-}
-#mainHeader #alert .alerts {
-	background-color: red;
-	color: #fff;
-	padding: 10px 10px 10px 10px;
-}
-#mainHeader #alert .closeAlert {
-	width: 20px;
+#mainHeader .sociallinks {
 	position: absolute;
-	right: 10px;
-	top: 10px;
-	background: transparent;
-
+	right: 470px;
+	top: 19px;
+}
+#mainHeader .sociallinks li {
+	display: inline;
+	margin: 0 10px 0 0;
+}
+#mainHeader .sociallinks li a {
+	text-decoration: none;
+}
+#mainHeader .sociallinks li img {
+	width: 35px;
 }
 /*
 --------------------------------------------------------------------
 Cludo Search
 --------------------------------------------------------------------
 */
-.websiteSearch {
-	position: relative;
-}
-#cludo-search-form .search-input {
-	width: 400px;
-	height:35px;
-	position: absolute;
-	right: -9999px;
-	top:80px;
-	transition: 0s 2s;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
-#cludo-search-form:hover .search-input {
-	right: 20px;
-	transition: 0s;
-}
-#cludo-search-form .search-submit {
-	width:25px;
-	height:25px;
-	display:block;
-	position:absolute;
-	right:20px;
-	padding:0;
-	margin: 25px 0 0 0;
-	text-align:center;
-	cursor:pointer;
-}
-
-#cludo-search-form input.search-icon {
-	background-position:0 0;
-	z-index:90;
-	color:transparent;
-	background-image:url(https://globalassets.provo.edu/image/icons/search-loupe.svg);
-	background-color: transparent;
-	background-size: contain;
-}
 .powered-by-cludo {
 	display: none!important;
 }
 #search_autocomplete {
 	background-color: #eee;
 	position: absolute;
-
-	right: 20px;
-	top: 115px;
+	right: 55px;
+	top: 50px;
 	width: 400px;
 	z-index: 20;
 	box-shadow: 0 10px 7px -5px black;
@@ -288,18 +231,16 @@ Navigation
 #mainNav {
 	width: 100%;
 	font-size:.85em;
+	float:left;
 }
 .nav-menu {
 	display:block;
 	position:relative;
 	list-style:none;
 	text-align:left;
-	float: right;
+	margin: -23px 0px 0 190px;
 	padding:0;
 	z-index:15;
-	margin-right: 65px;
-	padding-top: 15px;
-	margin-bottom: 6px;
 }
 .nav-item {
 	list-style:none;
@@ -316,7 +257,7 @@ Navigation
 	display:inline-block;
 	color:#002b51;
 	padding:.5em 1em;
-	margin:8px 0;
+	margin:8px 0 -1px;
 	border:1px solid transparent;
 	text-decoration:none;
 }
@@ -332,27 +273,24 @@ Navigation
 	border-bottom:none;
 	z-index:1;
 	color:#e16c16;
-
-}
-.nav-item img {
-	height: 30px;
-	margin-bottom: -10px;
 }
 .sub-nav {
 	position:fixed;
-	right: 0;
 	left: 0;
+	top: 124px;
 	opacity: 0;
-	top:117px;
 	visibility:hidden;
+
 	/*transition: visibility 0s linear 0s, opacity 400ms;*/
 	transition-delay:.5s;
+	margin-top:9px;
 	padding:30px 20px 0;
-	background-color:rgba(33,57,90,.9);
+	background-color:#21395a;
 	text-transform:none;
-	width:100%;
+	width:calc(97% - 320px);
 	text-align:left;
 	border-radius:3px;
+	box-shadow:1px 1px 5px #000;
 }
 .sub-nav a {
 	text-decoration:none;
@@ -360,14 +298,12 @@ Navigation
 	font-size:1em;
 	text-transform:uppercase;
 	font-weight:400;
-
 }
 .sub-nav.open {
 	visibility:visible;
 	opacity: 1;
 	transition: visibility 0s linear 0s, opacity 400ms;
 	transition-delay:.5s;
-	border-top:none;
 }
 .sub-nav ul.sub-nav-group {
 	display:inline-block;
@@ -394,7 +330,7 @@ ul.sub-nav-group li img {
 	padding:0;
 }
 .sub-nav .sub-nav-group .subMenu {
-	margin-top:-15px;
+	margin-top:-30px;
 	margin-bottom:15px;
 	display:block;
 }
@@ -407,8 +343,8 @@ ul.sub-nav-group li img {
 	margin:0 0 0 50px;
 }
 .sub-nav ul.sub-nav-group li a {
-	position: absolute;
-	width: 26%;
+position: absolute;
+width: 26%;
 }
 .sub-nav ul.sub-nav-group li ul li a {
 	text-transform:capitalize;
@@ -437,12 +373,6 @@ ul.sub-nav-group li img {
 	font-size:8px;
 	line-height:1em;
 }
-.rightarrow:after {
-	content:"\2794";
-	font-size:1em;
-	vertical-align: middle;
-}
-
 /*
 -------------------------------------------------------------------------------------------------
 Content Area
@@ -452,12 +382,11 @@ Content Area
 	display:block;
 	position:absolute;
 	left:0;
-	top:120px;
-	bottom:45px;
+	top:0;
+	bottom:0;
 	width:calc(100% - 320px);
 	overflow-y:auto;
 	overflow-x:hidden;
-	background-image: url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
 }
 .wp-block-button {
 	float: right!important;
@@ -476,14 +405,12 @@ Breadcrumbs
 	font-size:.6em;
 	padding-top:2px;
 	padding-bottom:2px;
-	padding-left:20px;
+	padding-left:10px;
 	margin-top:0;
 	margin-bottom:0;
-	margin-left: 0;
 	color:#fff;
 	list-style:none;
 	overflow:hidden;
-	background-image: url(//globalassets.provo.edu/image/backgrounds/contentarea-texture-dk.jpg);
 }
 #breadcrumbs li {
 	display:inline-block;
@@ -625,8 +552,8 @@ Single Post
 	padding-top:20px;
 }
 .singlePost .postmeta {
-	max-width:1000px;
-	margin: 0 auto;
+	max-width:100%;
+	display: inline-block;
 }
 .singlePost .postmeta ul,.postgrid .postmeta ul {
 	margin:0;
@@ -702,7 +629,7 @@ Department main styles
 	padding-left:0;
 	padding-right:0;
 	padding-bottom:10px;
-	/*  width:14.3%; after front page redesign this property started causing issues with the height of the department sliders */
+	width:14.3%;
 	height:auto;/* changed from 125px to auto so that the slider span was only as big as it needed to be 11-16-17*/
 	background-color:#ccd5df;
 	background-color:rgba(204,213,223,0.9);
@@ -777,8 +704,8 @@ Department main styles
 }
 .content .departmentResources .menu-Tile ul li {
 	list-style-position:inside;
-	margin:10px 0;
-
+	margin:5px 0;
+	padding:5px 5px 5px 10px;
 }
 .content .departmentResources .menu-Tile ul li a:hover {
 	color:#df6d1b;
@@ -808,7 +735,6 @@ Department main styles
 Office Directory styles
 --------------------------------------------------------------------
 */
-
 .directory .postgrid .staff-member-listing {
 	display:flex;
 	flex-wrap:wrap;
@@ -875,37 +801,6 @@ Office Directory styles
 	height:22px;
 	margin-bottom:-7px;
 }
-
-
-
-
-
-
-
-
-
-
-/*
---------------------------------------------------------------------
-contact using grid in main content area.
---------------------------------------------------------------------
-
-.activePost .personalvCard {
-	display: grid;
-	grid-template-columns:  120px 0 1fr;
-	padding: 1%;
-}
-.activePost .personalvCard:nth-child(even) {
-	background-color: #dbe1e7;
-}
-.activePost .personalvCard:nth-child(odd) {
-	background-color: #f1f5f9;
-}
-.activePost .personalvCard ul li {
-	margin: 10px 0 10px 0;
-	list-style: none;
-}
-*/
 /*
 --------------------------------------------------------------------
 404 styles
@@ -936,8 +831,7 @@ contact using grid in main content area.
 
 
 
-/*
-.activePost #cludo-search-form {
+/* .activePost #cludo-search-form {
 	border:1px solid #ccc;
 	padding:5px;
 	margin-bottom:20px;
@@ -967,10 +861,11 @@ Sidebars
 .sidebar {
 	display:block;
 	width:280px;
+	height:100%;
 	position:absolute;
 	right:0;
-	top:110px;
-	bottom:45px;
+	top:0;
+	bottom:0;
 	padding:0 20px;
 	background-color:#21395a;
 	color:#dce2e8;
@@ -1057,11 +952,15 @@ Sidebars
 	width:100%;
 }
 .imagelist li a {
-	display:grid;
-	grid-template-columns: 20% 95%;
+	display:block;
 }
 .imagelist li a img {
-	vertical-align: middle;
+	vertical-align:middle;
+}
+.imagelist li a span {
+	display:inline-block;
+	vertical-align:middle;
+	width:180px;
 }
 .sidebar .imagelist li a:hover {
 	text-decoration:none!important;
@@ -1181,22 +1080,11 @@ h1 {
 }
 h2 {font-size:1.75em;}
 .activePost h2:first-of-type,.activePost h3:first-of-type{clear:none;}
-/* Rob asked to be remove on 12-7-17
+/* Rob asked me to remove on 12-7-17
 .content h2 {
 	margin:50px 0;
 }
 */
-.headerPhone {
-	position: absolute;
-	right: 60px;
-	bottom: 0;
-	margin-bottom: 5px;
-	color: #999;
-}
-.headerPhone span:first-of-type {
-	color: #777;
-	margin-right: 20px;
-}
 .currentContent .post h2 {margin-top:0;}
 h3 { font-size:1.25em;}
 /*
@@ -1322,7 +1210,7 @@ ul li a[href*="xls"]:after {
 	content:' ';
 	display: inline-block;
 	margin-left: 3px;
-	width:.7em;
+	min-width:.7em;
 	height:.7em;
 	background-size:contain;
 	background-image:url(//globalassets.provo.edu/image/icons/external-link-gray.svg);
@@ -1344,14 +1232,14 @@ ul li a[href*="xls"]:after {
 	background-image: none;
 }
 .content p a[href*="pdf"]:after{
-	content:'(PDF) ';
-	display: inline;
+	content:' (PDF)';
+	display: inline-block;
 	background-image: none;
 }
 .content p a[href*="xls"]:after{
-	content:'(XLS) ';
+	content:' (XLS)';
 	background-image: none;
-	display: inline;
+	display: inline-block;
 }
 /* these are so that the listed links have a the right icon once the javascript gives them a class*/
 ul li.int {
@@ -1496,14 +1384,6 @@ table td,table th {
 span.wpcf7-list-item {
 	display: block;
 }
-.articlecontent {
-	max-width: 1000px;
-	margin: 0 auto;
-}
-.swp_social_panel:not(.nc_floater):not(.swp_social_panelSide) {
-	width: 1000px!important;
-	margin: 0 auto;
-}
 /*
 --------------------------------------------------------------------
 Policy styles
@@ -1644,7 +1524,7 @@ accordion styles .accordion as the control and a div beneath as the panel
 	float: right;
 	margin-left: 5px;
 }
-.accordion.active:after {
+.active:after {
 	  content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 /* Style the accordion panel. Note: hidden by default */
@@ -1659,11 +1539,9 @@ Contact Styles
 --------------------------------------------------------------------
 */
 .address ul li {list-style: none;margin-top: 0;margin-bottom: 0;}
-/*
-================================================================================================================
+/*================================================================================================================
 Calendar plugin styling
-================================================================================================================
-*/
+================================================================================================================*/
 #sidebar .simcal-calendar {
 	background-color: #fff;
 	border-radius: 3px;
@@ -1698,12 +1576,11 @@ form styles
 	padding: 10px;
 	width: calc(100% - 152px);
 }
-form input[type=submit], form button {
+form input[type=submit] {
 	width: 150px;
 	margin: 20px 0 20px 0;
 	padding: 10px;
-
-	border: 1px solid #ccc;
+	float: left;
 }
 form input[type=checkbox], form input[type=radio] {
 	display: inline;
@@ -1715,7 +1592,6 @@ form input[type=checkbox], form input[type=radio] {
 
 form p {
 	display: block;
-	/* changed from inline-block to block on this page => https://provo.edu/public-relations/the-provo-way-award-nomination-form/ because it was causing issues with formatting if this is changed check this page */
 }
 form textarea {
 	clear: both;
@@ -1758,7 +1634,9 @@ Responsive styles
 	#mainContent {
 		bottom:50px;
 	}
-
+	#mainFooter {
+		height: 50px;
+	}
 	/*
 	#mainFooter p {
 		margin:10px 10px 10px 0;
@@ -1809,7 +1687,16 @@ Responsive styles
 		margin-top:132px;
 		max-height:927px;
 	}
-
+	#mainFooter {
+		display:block;
+		position:inherit;
+		clear:both;
+		padding:5px;
+		height:inherit;
+	}
+	#wp-live-chat {
+		bottom:0!important;
+	}
 	.nav-menu {
 		display:none;
 	}
@@ -1817,27 +1704,14 @@ Responsive styles
 		display:block;
 		text-align:center;
 		width:85%;
-		margin-top: 25px;
-		margin-bottom: 20px;
+		margin-top: -15px;
 	}
-	#cludo-search-form .search-submit {
-		top: -65px;
-	}
-	#cludo-search-form .search-input {
-		top: 0;
-	}
-	#search_autocomplete {
-		top: 35px;
-	}
-	/*
 	#cludo-search-form .search-input {
 		width:200px;
 	}
 	#mainHeader .sociallinks {
 		right: 270px;
 	}
-	*/
-
 	#reveal-menu[type=checkbox]:checked ~ #mainNav #mobileNav {
 		display:block;
 		position:absolute;
@@ -1893,8 +1767,7 @@ Responsive styles
 	}
 }
 
-@media (max-width: 685px) {
-	/*
+@media (max-width: 617px) {
 	#mainHeader {
 		height:68px;
 		max-width:100%;
@@ -1902,6 +1775,13 @@ Responsive styles
 	}
 	#mainHeader .sociallinks {
 		display: none;
+	}
+	#mainHeader .mobileMenu {
+		width:100%;
+		text-align:center;
+	}
+	.districtLogo {
+		width:100px;
 	}
 	.contactinfo {
 		margin-top:0;
@@ -1923,20 +1803,6 @@ Responsive styles
 	}
 	#search_autocomplete {
 		display: none;
-	}
-	*/
-	.headerPhone {
-		font-size: 12px;
-	}
-	#cludo-search-form:hover .search-input {
-		width: 300px;
-	}
-	#mainHeader .mobileMenu {
-		width:100%;
-		text-align:center;
-	}
-	.districtLogo {
-		width:100px;
 	}
 	#mainNav #mobileNav {
 		top:124px;
@@ -2019,33 +1885,7 @@ Responsive styles
 		height:100%!important;
 	}
 }
-
 @media (max-height: 400px) {
-#mainHeader {
-	position: initial;
-}
-#cludo-search-form .search-input {
-	right: 0;
-	top: 80px;
-
-}
-#cludo-search-form:hover .search-input {
-	right: 50px;
-	top:-65px;
-}
-#mainContent {
-	margin-top:0!important;
-}
-#mainFooter{
-	position:initial;
-}
-/*
-#mainContent {
-	margin-top: 0;
-}
-#mainFooter{
-	position:relative;
-}
 	#mainHeader {
 		position:relative;
 	}
@@ -2064,5 +1904,4 @@ Responsive styles
 		max-height:none;
 		overflow:visible;
 	}
-*/
 }
